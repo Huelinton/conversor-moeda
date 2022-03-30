@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Dólar hoje: Cotação comercial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<script src="scripts.js" defer></script>
+</head>
+<body>
+	<div class="container">		
+	  <header>
+	  	<h1>Coversor dos Guri</h1>
+	  </header>
+		<main class="caixa">
+		    <form>
+		    	<label>Converter de</label>
+		    	<select class="inputPadrao" id="converterDe">
+		    		<option value="Real">R$ Real</option>
+		    		<option value="Dólar">US$ Dólar</option>
+		    		<option value="Euro">€ Euro</option>
+		    	</select>
+
+		    	<label>Para</label>
+		    	<select class="inputPadrao" id="converterPara">
+		    		<option value="Real">R$ Real</option>
+		    		<option value="Dólar" selected>US$ Dólar</option>
+		    		<option value="Euro">€ Euro</option>
+		    	</select>
+
+		    	<label for="valorMoeda">Valor</label>
+		    	<input type="text" name="Valor" id="valorMoeda" class="inputPadrao" placeholder="R$5.000,00">
+
+		    	<button class="converterUsa" id="btnConverter">Converter</button>
+		    </form>
+
+		    <section class="resultado">
+		    	<div id="aConverter">
+		    		<h2 class="imgBr" id="imgAConverter">Converter de</h2>
+		    		<p class="simboloNome">Euro</p>
+		    		<p class="valorMoedaAtual">€0,00</p>
+		    	</div>
+
+		    	<div>
+		    		<img src="img/seta.png" class="seta">
+		    	</div>
+
+		    	<div id="convertido">
+		    		<p class="cotacaoAtual">Cotação: US$0,00</p>
+			    	<h3 class="imgDolar" id="imgConvertido">Para</h2>
+		    		<p class="simboloNome">Dólar</p>
+		    		<p class="valorMoedaAtual">US$0,00</p>
+		    	</div>
+		    </section>
+		</main>
+	</div>
+</body>
+</html>
