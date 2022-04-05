@@ -2,13 +2,22 @@
 var converterDe = document.getElementById('converterDe');
 var converterPara = document.getElementById('converterPara');
 var valorMoeda = document.getElementById('valorMoeda');
+var valorMoedaAtual = document.getElementById('valorMoedaAtual');
+var valorMoedaConvertida = document.getElementById('valorMoedaConvertida');
+var cotacaoAtual = document.getElementById('cotacaoAtual');
 var btn = document.querySelector('#btnConverter');
+
+
+
+
+
+
 
 let converteValores = async() => {
     const url = 'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BRL-USD,EUR-USD,BRL-EUR,USD-EUR'
     const response = await fetch(url).then(response => response.json())
 
-    const dolarReal = response.USDBRL.ask;
+    var dolarReal = response.USDBRL.ask;
     const euroReal = response.EURBRL.ask;
 
     const realDolar = response.BRLUSD.ask;
@@ -16,38 +25,32 @@ let converteValores = async() => {
     
     const realEuro = response.BRLEUR.ask;
     const dolarEuro = response.USDEUR.ask;
-
-        
 }
 
-console.log(cotacaoAtual);
+console.log(converteValores.dolarReal);
 
-converterDe.addEventListener('change', mudaConverterDe = event => {
-    var valorMoedaAatual = document.getElementById('valorMoedaAatual');
+converterDe.addEventListener('change', mudaConverterDe = event => {    
     const imgAConverter = document.getElementById('imgAConverter');
 
     const moedaAtual = event.target.value;
     const classeAtualSimbulo = imgAConverter.className;
-    var valorPadrao = valorMoeda.placeholder;
-
 
     if (moedaAtual === 'Dólar') {
         imgAConverter.classList.replace(classeAtualSimbulo, 'imgDolar');
-        valorPadrao = 'US$ 5.000,00'
-        valorMoedaAatual.innerHTML = valorPadrao;
+        valorMoeda.placeholder = 'US$ 5.000,00'
+        valorMoedaAtual.innerHTML = valorMoeda.placeholder;
         
     }
     else if (moedaAtual === 'Euro') {
         imgAConverter.classList.replace(classeAtualSimbulo, 'imgEuro');
-        valorPadrao = '€ 5.000,00'
-        valorMoedaAatual.innerHTML = valorPadrao;
+        valorMoeda.placeholder = '€ 5.000,00'
+        valorMoedaAtual.innerHTML = valorMoeda.placeholder;
     }
     else {
         imgAConverter.classList.replace(classeAtualSimbulo, 'imgBr');
-        valorPadrao = 'R$ 5.000,00'
-        valorMoedaAatual.innerHTML = valorPadrao;
+        valorMoeda.placeholder = 'R$ 5.000,00'
+        valorMoedaAtual.innerHTML = valorMoeda.placeholder;
     }
-    console.log(valorMoeda)
 });
 
 //Evento responsável por mudar a cor do botão.
@@ -74,6 +77,4 @@ converterPara.addEventListener('change', mudaConverterPara = event => {
 
 
 btn.addEventListener('click', converteValores);
-window.addEventListener('load', carregarTudo = event => {
-    valorMoedaAatual.innerHTML = '2'
-});
+
