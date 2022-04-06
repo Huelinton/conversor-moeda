@@ -7,17 +7,11 @@ var valorMoedaConvertida = document.getElementById('valorMoedaConvertida');
 var cotacaoAtual = document.getElementById('cotacaoAtual');
 var btn = document.querySelector('#btnConverter');
 
-
-
-
-
-
-
-let converteValores = async() => {
+var converteValores = async () => {
     const url = 'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BRL-USD,EUR-USD,BRL-EUR,USD-EUR'
     const response = await fetch(url).then(response => response.json())
 
-    var dolarReal = response.USDBRL.ask;
+    const dolarReal = response.USDBRL.ask;
     const euroReal = response.EURBRL.ask;
 
     const realDolar = response.BRLUSD.ask;
@@ -25,9 +19,10 @@ let converteValores = async() => {
     
     const realEuro = response.BRLEUR.ask;
     const dolarEuro = response.USDEUR.ask;
-}
 
-console.log(converteValores.dolarReal);
+    console.log(response.EURBRL.ask);
+
+}
 
 converterDe.addEventListener('change', mudaConverterDe = event => {    
     const imgAConverter = document.getElementById('imgAConverter');
@@ -74,7 +69,6 @@ converterPara.addEventListener('change', mudaConverterPara = event => {
     }
 });
 
-
-
 btn.addEventListener('click', converteValores);
+//btn.addEventListener('click', converteValores);
 
